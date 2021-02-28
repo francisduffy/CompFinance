@@ -881,7 +881,7 @@ LPXLOPER12 xDisplayRisk(
 
     RiskReports* results;
     const string riskId = getString(riskid);
-    auto& it = riskStore.find(riskId);
+    const auto& it = riskStore.find(riskId);
     if (it == riskStore.end()) return TempErr12(xlerrNA);
     else results = &it->second;
 
