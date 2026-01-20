@@ -17,7 +17,7 @@ As long as this comment is preserved at the top of the file
 #pragma once
 
 //  Thread pool of chapter 3
-
+#include <chrono>
 #include <future>
 #include <thread>
 #include "ConcurrentQueue.h"
@@ -153,6 +153,7 @@ public:
 		//	Check if the future is ready without blocking
 		//	The only syntax C++11 provides for that is
 		//	wait 0 seconds and return status
+        using namespace std::chrono_literals;
 		while (f.wait_for(0s) != future_status::ready)
 		{
 			//	Non blocking
